@@ -1,0 +1,11 @@
+[user]
+  name = SusuMantan
+  email = suzumantan@gmail.com
+[init]
+  defaultBranch = main
+[includeIf "gitdir:~/koyoi/"]
+  path = ~/koyoi/.gitconfig
+[includeIf "gitdir:~/work/"]
+  path = ~/work/.gitconfig
+[includeIf "gitdir:~/sandbox/"]
+  path = ~/sandbox/.gitconfig
