@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+
+command -v fzf >/dev/null 2>&1 || { echo "fzf is not installed"; exit 1; }
+
+SEARCH_DIRS=("$HOME/work" "$HOME/sandbox")
+
+list_directories() {
+  if command -v bfs >/dev/null 2>&1; then
+    bfs "${SEARCH_DIRS[@]}" -maxdepth 1 -mindepth 1 -type d
+  else
+    find "${SEARCH_DIRS[@]}" -maxdepth 1 -mindepth 1 -type d
+  fi
+}
+
+pick_directory() {
+  list_directories \
+    | while IFS= read -r dir; do
+        printf '%s\t%s\n' "${dir/#$HOME/~}" "$dir"
+      done \
+    | fzf --delimiter=$'\t' --with-nth=1 --nth=1 \
+    | cut -f2-
+}
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(pick_directory)
+fi
+
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+selected_name=$(basename "$selected" | tr . _)
+tmux_running=$(pgrep tmux)
+
+if [[ -z $TMUX ]] && [[ -z $tmux_running ]]; then
+  tmux new-session -s "$selected_name" -c "$selected"
+  exit 0
+fi
+
+if ! tmux has-session -t="$selected_name" 2> /dev/null; then
+  tmux new-session -ds "$selected_name" -c "$selected"
+fi
+
+tmux switch-client -t "$selected_name"

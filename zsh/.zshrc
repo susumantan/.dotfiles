@@ -7,6 +7,21 @@ if [ -d "$PLUGINS_DIR" ]; then
   done
 fi
 
+if [ -d "$HOME/.config/zsh/plugins/fzf-git" ]; then
+  source "$HOME/.config/zsh/plugins/fzf-git/fzf-git.sh"
+  _fzf_git_fzf() {
+    fzf-tmux -p 100%,100% \
+      --wrap \
+      --layout=reverse --multi \
+      --padding=1,0,0,0 \
+      --border --border-label-pos=2 \
+      --color='label:bold' \
+      --preview-window='right,50%,border-left' \
+      --bind='double-click:ignore' \
+      --bind='ctrl-/:change-preview-window(down,50%,border-top|hidden|)' "$@"
+  }
+fi
+
 # Preferred editor
 if command -v vim >/dev/null 2>&1; then
   export EDITOR='vim'
