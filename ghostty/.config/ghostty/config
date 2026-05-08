@@ -1,0 +1,11 @@
+# typography
+font-family=Iosevka
+font-thicken=true
+font-thicken-strength=1
+adjust-cell-height=1
+
+# aesthetics
+background-opacity=0.85
+background-blur=16
+background=#000000
+macos-titlebar-style=hidden

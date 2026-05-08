@@ -1,6 +1,6 @@
 [user]
-  name = SusuMantan
-  email = suzumantan@gmail.com
+	name = SusuMantan
+	email = suzumantan@gmail.com
 [init]
   defaultBranch = main
 [includeIf "gitdir:~/koyoi/"]
