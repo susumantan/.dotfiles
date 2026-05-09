@@ -2,7 +2,7 @@
 
 command -v fzf >/dev/null 2>&1 || { echo "fzf is not installed"; exit 1; }
 
-SEARCH_DIRS=("$HOME/work" "$HOME/sandbox")
+SEARCH_DIRS=("$HOME/work" "$HOME/sandbox" "$HOME/Herd")
 
 list_directories() {
   if command -v bfs >/dev/null 2>&1; then
