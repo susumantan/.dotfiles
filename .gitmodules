@@ -1,3 +1,6 @@
 [submodule "zsh/.config/zsh/plugins/fzf-git"]
 	path = zsh/.config/zsh/plugins/fzf-git
 	url = git@github.com:junegunn/fzf-git.sh.git
+[submodule "tmux/.config/tmux/plugins/tmux-open"]
+	path = tmux/.config/tmux/plugins/tmux-open
+	url = git@github.com:tmux-plugins/tmux-open.git
