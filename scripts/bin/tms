@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+command -v sesh >/dev/null 2>&1 || { echo "sesh is not installed"; exit 1; }
+
+command -v fzf >/dev/null 2>&1 || { echo "fzf is not installed"; exit 1; }
+
+SEARCH_DIRS=("$HOME/Herd" "$HOME/work" "$HOME/sandbox")
+
+list_directories() {
+  if command -v bfs >/dev/null 2>&1; then
+    bfs "${SEARCH_DIRS[@]}" -maxdepth 1 -mindepth 1 -type d
+  elif command -v fd >/dev/null 2>&1; then
+    fd --type d --max-depth 1 --search-path "${SEARCH_DIRS[@]}"
+  else
+    find "${SEARCH_DIRS[@]}" -maxdepth 1 -mindepth 1 -type d
+  fi
+}
+
+sesh connect $(list_directories | fzf-tmux -p 80%,70% \
+  --ansi --border-label ' sesh ' --prompt '⚡ ' \
+   --header '  ^a all ^t tmux ^g configs ^x zoxide ^d tmux kill ^f find' \
+   --bind 'tab:down,btab:up' \
+   --bind 'ctrl-a:change-prompt(⚡  )+reload(sesh list --icons)' \
+    --bind 'ctrl-t:change-prompt(🪟  )+reload(sesh list -t --icons)' \
+    --bind 'ctrl-g:change-prompt(⚙️  )+reload(sesh list -c --icons)' \
+    --bind 'ctrl-x:change-prompt(📁  )+reload(sesh list -z --icons)' \
+    --bind 'ctrl-f:change-prompt(🔎  )+reload(fd -H -d 2 -t d -E .Trash . ~)')
