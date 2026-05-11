@@ -43,9 +43,8 @@ fi
 # Herd injected PHP 8.4 configuration.
 export HERD_PHP_84_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/84/"
 
-# Herd injected PHP 8.5 configuration.
-export HERD_PHP_85_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/85/"
-
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/82/"
 
 # Herd injected PHP 7.4 configuration.
 export HERD_PHP_74_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/74/"

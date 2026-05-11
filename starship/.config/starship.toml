@@ -4,15 +4,24 @@
 command_timeout = 10000
 
 # Use this format for starter, the more you add the more it will slow down
+# format = """
+# $username\
+# $hostname\
+# $directory\
+# $git_branch\
+# $git_commit\
+# $git_state\
+# $git_metrics\
+# $git_status\
+# $cmd_duration\
+# $line_break\
+# $character"""
+
 format = """
 $username\
 $hostname\
 $directory\
 $git_branch\
-$git_commit\
-$git_state\
-$git_metrics\
-$git_status\
 $cmd_duration\
 $line_break\
 $character"""
