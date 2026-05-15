@@ -14,7 +14,7 @@ fi
 # Preferred editor
 if command -v vim >/dev/null 2>&1; then
   export EDITOR='vim'
-fi 
+fi
 
 source "$HOME/.config/zsh/aliases.zsh"
 source "$HOME/.config/zsh/profile.zsh"
@@ -49,8 +49,14 @@ export HERD_PHP_82_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/H
 # Herd injected PHP 7.4 configuration.
 export HERD_PHP_74_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/74/"
 
-# Added by Antigravity
-export PATH="/Users/susumantan/.antigravity/antigravity/bin:$PATH"
+# Herd injected PHP 8.0 configuration.
+export HERD_PHP_80_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/80/"
+
+# Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/81/"
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/83/"
 
 # Starship prompt
 eval "$(starship init zsh)"

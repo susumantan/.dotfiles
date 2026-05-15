@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# gdeploy - Used in KOPNUS to deploy to dev server.
+
+# If we're not in a git repository, exit with an error message.
+if ! git rev-parse --is-inside-work-tree >/dev/null 2>&1; then
+    echo "Error: Not a git repository. Please run this script from within a git repository."
+    exit 1
+fi
+
+# 1. 'dev' and 'development' branch in remote. Will be removed if 'development' branch is removed.
+# if no 'dev' branch, abort
+# if has 'development' branch, abort
+if ! git ls-remote --heads origin dev >/dev/null 2>&1; then
+    echo "Error: 'dev' branch does not exist in remote. Please create a 'dev' branch in remote before running this script."
+    exit 1
+fi
+
+if git ls-remote --heads origin development >/dev/null 2>&1; then
+    echo "Error: 'development' branch already exists in remote." exit 1
+fi
+
+CURRENT_BRANCH=$(git rev-parse --abrev-ref HEAD)
+TARGET_BRANCH="dev" # TODO: make this automatically detect
+
+# Confirmation prompt. TODO: make this prettier using charmbracelet/gum or something.
+echo "-----------------------------------"
+echo "DEPLOY:  $CURRENT_BRANCH -> $TARGET_BRANCH"
+echo "REMOTES: origin, dev"
+echo "-----------------------------------"
+
+read -q "REPLY?Proceed? (y/n) "
+echo "\n"
+
+if [[ "$REPLY" != "y" ]]; then
+    return 1
+fi
+
+# Push work to origin first
+git push origin "$CURRENT_BRANCH"
+
+# Switch to dev and sync
+git checkout "$TARGET_BRANCH"
+git pull origin "$TARGET_BRANCH"
+
+echo "Merging $CURRENT_BRANCH into $TARGET_BRANCH..."
+if ! git merge "$CURRENT_BRANCH"; then
+    echo "Error: Conflicts detected. Opening Zed..."
+    zed . --wait
+    echo "INSTRUCTIONS:"
+    echo "1. Resolve conflicts in Zed."
+    echo "2. git add . && git commit"
+    echo "3. Run: git push origin $TARGET_BRANCH && git push dev $TARGET_BRANCH"
+else
+    echo "No conflicts detected. Pushing to dev..."
+    git push origin "$TARGET_BRANCH"
+    git push dev "$TARGET_BRANCH"
+fi

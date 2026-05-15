@@ -13,3 +13,10 @@ background-opacity = 0.85
 background-blur = 16
 background = #000000
 macos-titlebar-style = hidden
+
+# Quick Terminal
+# quick-terminal-position = left
+# quick-terminal-size = 75%
+quick-terminal-animation-duration = 0
+quick-terminal-autohide = true
+keybind = global:super+ctrl+shift+alt+g=toggle_quick_terminal

@@ -56,13 +56,14 @@ alias glogg="git log --color=always --oneline --graph --pretty=format:'%Cred%h%C
 alias glog="git log --color=always --oneline --date=short --pretty=format:'%Cred%h%Creset%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'"
 
 alias gfo="git fetch origin"
-alias gpull="git pull"
+alias gl="git pull"
 alias gpush="git push"
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
 alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease'
 
 alias gsw="git switch"
-alias gswc="git switch --create"
+alias gswd="git switch $(git_develop_branch)"
+alias gswm="git switch $(git_main_branch)"
 alias gco="git checkout"
 
 alias groll='git reset --hard origin/$(git_current_branch)'

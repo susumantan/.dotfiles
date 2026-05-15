@@ -1,5 +1,7 @@
 #!zsh
 
+alias phpv="php --version"
+
 alias artisan='php artisan'
 
 alias pas='php artisan serve'
