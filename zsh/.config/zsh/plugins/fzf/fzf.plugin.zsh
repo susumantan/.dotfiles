@@ -54,9 +54,9 @@ fzf_setup_using_base_dir \
 unset -f -m 'fzf_setup_*'
 
 if [[ -z "$FZF_DEFAULT_COMMAND" ]]; then
-  if (( $+commands[bfs] )); then
-    export FZF_DEFAULT_COMMAND='bfs -type f -follow -exclude -name .git'
-  elif (( $+commands[fd] )); then
+  if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+  elif (( $+commands[bfs] )); then
+    export FZF_DEFAULT_COMMAND='bfs -type f -follow -exclude -name .git'
   fi
 fi

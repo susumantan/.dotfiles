@@ -4,18 +4,18 @@
 typeset -U path
 path+=($HOME/bin)
 
-export FZF_COMPLETION_TRIGGER=','
-function _fzf_compgen_path() {
-  echo "$1"
-  bfs -follow "$1" \
-    -exclude -name .git -a -exclude -name node_modules -a -exclude -name .hg -exclude -name .svn -a \( -type d -o -type f -o -type l \) \
-    -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
-}
-function _fzf_compgen_dir() {
-  bfs -follow "$1" \
-    -exclude -name .git -a -exclude -name node_modules -a -exclude -name .hg -exclude -name .svn -a -type d \
-    -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@' 
-}
+# export FZF_COMPLETION_TRIGGER=','
+# function _fzf_compgen_path() {
+#   echo "$1"
+#   bfs -follow "$1" \
+#     -exclude -name .git -a -exclude -name node_modules -a -exclude -name .hg -exclude -name .svn -a \( -type d -o -type f -o -type l \) \
+#     -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+# }
+# function _fzf_compgen_dir() {
+#   bfs -follow "$1" \
+#     -exclude -name .git -a -exclude -name node_modules -a -exclude -name .hg -exclude -name .svn -a -type d \
+#     -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
+# }
 
 # export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
 # --prompt='❯ '

@@ -7,13 +7,13 @@ command -v fzf >/dev/null 2>&1 || { echo "fzf is not installed"; exit 1; }
 SEARCH_DIRS=("$HOME/Herd" "$HOME/work" "$HOME/sandbox")
 
 list_directories() {
-  if command -v bfs >/dev/null 2>&1; then
-    bfs "${SEARCH_DIRS[@]}" -maxdepth 1 -mindepth 1 -type d
-  elif command -v fd >/dev/null 2>&1; then
-    fd --type d --max-depth 1 --search-path "${SEARCH_DIRS[@]}"
-  else
-    find "${SEARCH_DIRS[@]}" -maxdepth 1 -mindepth 1 -type d
-  fi
+    if command -v fd >/dev/null 2>&1; then
+        fd --type d --max-depth 1 --min-depth 1 . "${SEARCH_DIRS[@]}"
+    elif command -v bfs >/dev/null 2>&1; then
+        bfs "${SEARCH_DIRS[@]}" -maxdepth 1 -mindepth 1 -type d
+    else
+        find "${SEARCH_DIRS[@]}" -maxdepth 1 -mindepth 1 -type d
+    fi
 }
 
 sesh connect $(list_directories | fzf-tmux -p 80%,70% \
