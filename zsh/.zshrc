@@ -66,7 +66,7 @@ export HERD_PHP_81_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/H
 export HERD_PHP_83_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/83/"
 
 # p10k prompt
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+source "$HOME/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# To customize prompt, run `p10k configure` or edit $HOME/.config/p10k/p10k.zsh
 [[ ! -f $HOME/.config/p10k/p10k.zsh ]] || source $HOME/.config/p10k/p10k.zsh
