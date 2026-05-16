@@ -14,8 +14,8 @@ if [ -d "$PLUGINS_DIR" ]; then
   done
 fi
 
-if [ -d "$HOME/.config/zsh/plugins/fzf-git" ]; then
-  source "$HOME/.config/zsh/plugins/fzf-git/fzf-git.sh"
+if [ -d "$PLUGINS_DIR/fzf-git" ]; then
+  source "$PLUGINS_DIR/fzf-git/fzf-git.sh"
 fi
 
 # Preferred editor
@@ -31,33 +31,18 @@ source "$HOME/.config/zsh/profile.zsh"
 
 # Herd
 export HERD_PHP_PATH="$HOME/Library/Application Support/Herd/bin"
-if [ -d "$HERD_PHP_PATH" ]; then
-  export PATH="$HERD_PHP_PATH:$PATH"
-fi
+[ -d "$HERD_PHP_PATH" ] && export PATH="$HERD_PHP_PATH:$PATH"
 
-# Herd injected PHP 8.4 configuration.
-export HERD_PHP_84_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/84/"
-
-# Herd injected PHP 8.2 configuration.
-export HERD_PHP_82_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/82/"
-
-# Herd injected PHP 7.4 configuration.
-export HERD_PHP_74_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/74/"
-
-# Herd injected PHP 8.0 configuration.
-export HERD_PHP_80_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/80/"
-
-# Herd injected PHP 8.1 configuration.
-export HERD_PHP_81_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/81/"
-
-# Herd injected PHP 8.3 configuration.
-export HERD_PHP_83_INI_SCAN_DIR="$HOME/Library/Application Support/Herd/config/php/83/"
+# Consolidated Herd injected PHP configuration.
+for version in 74 80 81 82 83 84; do
+  export "HERD_PHP_${version}_INI_SCAN_DIR=$HOME/Library/Application Support/Herd/config/php/${version}/"
+done
 
 # zoxide
-eval "`zoxide init zsh`"
+eval "$(zoxide init zsh)"
 
 # p10k prompt
-source "$HOME/.config/zsh/plugins/powerlevel10k/powerlevel10k.zsh-theme"
+source "$PLUGINS_DIR/powerlevel10k/powerlevel10k.zsh-theme"
 
 # To customize prompt, run `p10k configure` or edit $HOME/.config/p10k/p10k.zsh
 [[ ! -f $HOME/.config/p10k/p10k.zsh ]] || source $HOME/.config/p10k/p10k.zsh
