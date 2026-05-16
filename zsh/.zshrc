@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 # Auto-load all zsh plugins from ~/.config/zsh/plugins
 PLUGINS_DIR="$HOME/.config/zsh/plugins"
 
@@ -58,5 +65,8 @@ export HERD_PHP_81_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/H
 # Herd injected PHP 8.3 configuration.
 export HERD_PHP_83_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/83/"
 
-# Starship prompt
-eval "$(starship init zsh)"
+# p10k prompt
+source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f $HOME/.config/p10k/p10k.zsh ]] || source $HOME/.config/p10k/p10k.zsh
