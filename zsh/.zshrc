@@ -33,10 +33,23 @@ source "$HOME/.config/zsh/profile.zsh"
 export HERD_PHP_PATH="$HOME/Library/Application Support/Herd/bin"
 [ -d "$HERD_PHP_PATH" ] && export PATH="$HERD_PHP_PATH:$PATH"
 
-# Consolidated Herd injected PHP configuration.
-for version in 74 80 81 82 83 84; do
-  export "HERD_PHP_${version}_INI_SCAN_DIR=$HOME/Library/Application Support/Herd/config/php/${version}/"
-done
+# Herd injected PHP 8.4 configuration.
+export HERD_PHP_84_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/84/"
+
+# Herd injected PHP 8.3 configuration.
+export HERD_PHP_83_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/83/"
+
+# Herd injected PHP 8.2 configuration.
+export HERD_PHP_82_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/82/"
+
+# Herd injected PHP 8.1 configuration.
+export HERD_PHP_81_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/81/"
+
+# Herd injected PHP 8.0 configuration.
+export HERD_PHP_80_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/80/"
+
+# Herd injected PHP 7.4 configuration.
+export HERD_PHP_74_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/74/"
 
 # zoxide
 eval "$(zoxide init zsh)"
