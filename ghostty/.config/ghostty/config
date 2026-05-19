@@ -17,6 +17,10 @@ macos-titlebar-style = hidden
 # Quick Terminal
 # quick-terminal-position = left
 # quick-terminal-size = 75%
-quick-terminal-animation-duration = 0
-quick-terminal-autohide = true
-keybind = global:super+ctrl+shift+alt+g=toggle_quick_terminal
+# quick-terminal-animation-duration = 0
+# quick-terminal-autohide = true
+# keybind = global:super+ctrl+shift+alt+g=toggle_quick_terminal
+
+# Command
+# We need to use full path to tmux because ghostty doesn't inherit the PATH environment variable from the shell
+command = /opt/homebrew/bin/tmux new-session -A -t ghostty
