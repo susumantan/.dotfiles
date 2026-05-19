@@ -17,22 +17,17 @@ path+=($HOME/bin)
 #     -a -not -path "$1" -print 2> /dev/null | sed 's@^\./@@'
 # }
 
-# export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
-# --prompt='❯ '
-# --pointer='-'
-# --marker='+'
-# --tabstop=4
-# --color=dark
-# --color=hl:2:bold,fg+:4:bold,bg+:-1,hl+:2:bold,info:3:bold,border:8,prompt:2,pointer:5,marker:1,header:6
-# --bind 'ctrl-alt-d:preview-down,ctrl-alt-u:preview-up,ctrl-d:page-down,ctrl-u:page-up,::jump'
-# "
 
-export FZF_DEFAULT_OPTS=" \
---color=spinner:#F5E0DC,hl:#F38BA8 \
---color=fg:#CDD6F4,header:#F38BA8,info:#CBA6F7,pointer:#F5E0DC \
---color=marker:#B4BEFE,fg+:#CDD6F4,prompt:#CBA6F7,hl+:#F38BA8 \
---color=selected-bg:#45475A \
---color=border:#6C7086,label:#CDD6F4"
+export FZF_DEFAULT_OPTS=$'--color=fg:#c9d1d9,bg:#0d1117,hl:#79c0ff,fg+:#c9d1d9,bg+:#161b22
+  --color=hl+:#a5d6ff,info:#8b949e,prompt:#58a6ff,pointer:#f85149
+  --color=marker:#ff7b72,spinner:#3fb950,header:#79c0ff,border:#30363d
+  --color=label:#8b949e,gutter:#161b22,footer:#8b949e'
+
+# A more darker
+# export FZF_DEFAULT_OPTS=$'--color=fg:#b2b2b2,bg:#080808,hl:#80a0ff,fg+:#c6c6c6,bg+:#1a1a2e
+#   --color=hl+:#80a0ff,info:#36c692,prompt:#ae81ff,pointer:#ff5454
+#   --color=marker:#ff8080,spinner:#79dac8,header:#74b2ff,border:#303030
+#   --color=label:#686868,gutter:#1a1a2e,footer:#74b2ff'
 
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
 --prompt='❯ '
