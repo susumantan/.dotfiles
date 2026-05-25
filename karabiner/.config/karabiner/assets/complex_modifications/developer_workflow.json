@@ -13,34 +13,6 @@
           "type": "basic"
         }
       ]
-    },
-    {
-      "description": "2. Map Left Control to Fn/Globe (System Features)",
-      "manipulators": [
-        {
-          "from": {
-            "key_code": "left_control",
-            "modifiers": { "optional": ["any"] }
-          },
-          "to": [{ "key_code": "fn" }],
-          "type": "basic"
-        }
-      ]
-    },
-    {
-      "description": "3. Map Fn/Globe to Hyper Key",
-      "manipulators": [
-        {
-          "from": { "key_code": "fn", "modifiers": { "optional": ["any"] } },
-          "to": [
-            {
-              "key_code": "left_shift",
-              "modifiers": ["left_command", "left_control", "left_option"]
-            }
-          ],
-          "type": "basic"
-        }
-      ]
     }
   ]
 }
