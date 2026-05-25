@@ -51,8 +51,17 @@ export HERD_PHP_80_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/H
 # Herd injected PHP 7.4 configuration.
 export HERD_PHP_74_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/74/"
 
+# Herd injected PHP 8.5 configuration.
+export HERD_PHP_85_INI_SCAN_DIR="/Users/susumantan/Library/Application Support/Herd/config/php/85/"
+
+export FNM_PATH="$HOME/.local/share/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="$HOME/.local/share/fnm:$PATH"
+  eval "$(fnm env --use-on-cd --shell zsh)"
+fi
+
 # zoxide
-eval "$(zoxide init zsh)"
+# eval "$(zoxide init zsh)"
 
 # p10k prompt
 source "$PLUGINS_DIR/powerlevel10k/powerlevel10k.zsh-theme"

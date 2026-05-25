@@ -3,10 +3,10 @@ macos-option-as-alt = true
 
 # typography
 font-family = Iosevka
-font-size = 15
-# font-thicken = true
-# font-thicken-strength = 1
-# adjust-cell-height = 1
+font-size = 16
+font-thicken = true
+font-thicken-strength = 1
+adjust-cell-height = 1
 
 # aesthetics
 background-opacity = 0.85

@@ -57,6 +57,7 @@ alias glog="git log --color=always --oneline --date=short --pretty=format:'%Cred
 
 alias gfo="git fetch origin"
 alias gl="git pull"
+alias glo='git pull origin $(git_current_branch)'
 alias gpush="git push"
 alias gpsup='git push --set-upstream origin $(git_current_branch)'
 alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease'
