@@ -5,6 +5,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+typeset -U path
+path+=($HOME/bin)
+
 # Auto-load all zsh plugins from ~/.config/zsh/plugins
 PLUGINS_DIR="$HOME/.config/zsh/plugins"
 
@@ -23,8 +26,9 @@ if command -v vim >/dev/null 2>&1; then
   export EDITOR='vim'
 fi
 
+export VISUAL="zed"
+
 source "$HOME/.config/zsh/aliases.zsh"
-source "$HOME/.config/zsh/profile.zsh"
 
 # If you need to have a local .zsh_profile, create ~/.zsh_profile.local on your home directory
 [[ ! -f ~/.zsh_profile.local ]] || source ~/.zsh_profile.local
@@ -61,7 +65,7 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 # zoxide
-# eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh)"
 
 # p10k prompt
 source "$PLUGINS_DIR/powerlevel10k/powerlevel10k.zsh-theme"

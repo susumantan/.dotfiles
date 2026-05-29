@@ -56,7 +56,28 @@ unset -f -m 'fzf_setup_*'
 if [[ -z "$FZF_DEFAULT_COMMAND" ]]; then
   if (( $+commands[fd] )); then
     export FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
-  elif (( $+commands[bfs] )); then
-    export FZF_DEFAULT_COMMAND='bfs -type f -follow -exclude -name .git'
   fi
 fi
+
+# Not working in tmux, so commented out for now
+# export FZF_COMPLETION_TRIGGER=','
+# function _fzf_compgen_path() {
+#   fd --hidden --follow --exclude .git --exclude node_modules --exclude .hg --exclude .svn . "$1"
+# }
+# function _fzf_compgen_dir() {
+#   fd --type d --hidden --follow --exclude .git --exclude node_modules --exclude .hg --exclude .svn . "$1"
+# }
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=fg:-1,fg+:#d0d0d0,bg:-1,bg+:#262626
+  --color=hl:4,hl+:#5fd7ff,info:#5fd7ff,marker:2
+  --color=prompt:2,spinner:5,pointer:6,header:4
+  --color=gutter:#000000,border:#262626,label:#aeaeae,query:#d9d9d9
+  --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="❯ "
+  --marker="+" --pointer="-" --separator="─" --scrollbar="│"
+  --layout=reverse
+'
+
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
+--bind 'ctrl-d:preview-down,ctrl-u:preview-up'
+"

@@ -13,6 +13,16 @@ background-opacity = 0.85
 background-blur = 16
 background = #000000
 macos-titlebar-style = hidden
+# confirm-close-surface = false
+# window-decoration = auto
+# window-padding-x = 12
+# window-padding-y = 8
+# window-padding-balance = false
+# adjust-underline-position = 40%
+# adjust-underline-thickness = -60%
+# adjust-cell-height = 50%
+# confirm-close-surface = false
+# clipboard-paste-protection = false
 
 # Quick Terminal
 # quick-terminal-position = left

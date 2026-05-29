@@ -13,7 +13,19 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 
 alias :q="exit"
-# alias c="code"
-alias c="zed"
+alias c="code"
 
+alias dotfiles='$VISUAL ~/.dotfiles'
+alias zshconfig='$VISUAL ~/.zshrc'
+alias aliases='$VISUAL ~/.config/zsh/aliases.zsh'
+
+alias cat='bat --plain'
+alias htop='btop'
+# alias cd='z'
+alias lz='lazygit'
+
+clear() {
+    echo "Fix your habit: Use Ctrl+L instead of clear!"
+    return 1
+}
 # alias getrandom='openssl rand -base64 32'

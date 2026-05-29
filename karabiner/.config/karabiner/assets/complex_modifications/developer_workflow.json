@@ -1,15 +1,49 @@
 {
-  "title": "Developer Workflow: Caps->Ctrl, Ctrl->Fn, Fn->Hyper",
+  "title": "Developer",
   "rules": [
     {
-      "description": "1. Map Caps Lock to Left Control (Daily Habit)",
+      "description": "Change caps_lock to left_control",
       "manipulators": [
         {
           "from": {
             "key_code": "caps_lock",
-            "modifiers": { "optional": ["any"] }
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
           },
-          "to": [{ "key_code": "left_control" }],
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
+    },
+    {
+      "description": "Change left_control to hyper",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "left_control",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_control",
+                "right_option",
+                "right_command"
+              ]
+            }
+          ],
           "type": "basic"
         }
       ]

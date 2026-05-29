@@ -1,10 +1,4 @@
 #!zsh
 
-alias phpv="php --version"
-
 alias artisan='php artisan'
-
-alias pas='php artisan serve'
-
-alias pacar='php artisan clear:all'
-alias pacor='php artisan config:clear'
+alias paclr='php artisan view:clear; php artisan cache:clear; php artisan config:clear; php artisan route:clear; php artisan optimize:clear'

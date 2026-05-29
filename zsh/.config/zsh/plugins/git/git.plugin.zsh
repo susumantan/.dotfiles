@@ -63,8 +63,8 @@ alias gpsup='git push --set-upstream origin $(git_current_branch)'
 alias gpsupf='git push --set-upstream origin $(git_current_branch) --force-with-lease'
 
 alias gsw="git switch"
-alias gswd="git switch $(git_develop_branch)"
-alias gswm="git switch $(git_main_branch)"
+alias gswd='git switch $(git_develop_branch)'
+alias gswm='git switch $(git_main_branch)'
 alias gco="git checkout"
 
 alias groll='git reset --hard origin/$(git_current_branch)'
