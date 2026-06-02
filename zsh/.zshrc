@@ -26,7 +26,8 @@ if command -v vim >/dev/null 2>&1; then
   export EDITOR='vim'
 fi
 
-export VISUAL="zed"
+# export VISUAL="zed"
+export VISUAL="code"
 
 source "$HOME/.config/zsh/aliases.zsh"
 

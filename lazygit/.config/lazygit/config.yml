@@ -1,6 +1,10 @@
 os:
-  editPreset: "zed"
+  editPreset: "code"
 notARepository: "quit"
+git:
+  pagers:
+    - pager: bat --paging=never --style=plain --language=diff
+    - pager: delta --dark --paging=never
 gui:
   theme:
     activeBorderColor:
@@ -28,6 +32,5 @@ gui:
       - "#f38ba8"
     defaultFgColor:
       - "#cdd6f4"
-
   authorColors:
     "*": "#b4befe"

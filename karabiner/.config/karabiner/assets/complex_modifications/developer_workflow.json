@@ -47,6 +47,37 @@
           "type": "basic"
         }
       ]
+    },
+    {
+      "description": "Change tilde to hyper. (Post tilde if pressed alone)",
+      "manipulators": [
+        {
+          "from": {
+            "key_code": "grave_accent_and_tilde",
+            "modifiers": {
+              "optional": [
+                "any"
+              ]
+            }
+          },
+          "to": [
+            {
+              "key_code": "left_shift",
+              "modifiers": [
+                "left_control",
+                "right_option",
+                "right_command"
+              ]
+            }
+          ],
+          "to_if_alone": [
+            {
+              "key_code": "grave_accent_and_tilde"
+            }
+          ],
+          "type": "basic"
+        }
+      ]
     }
   ]
 }

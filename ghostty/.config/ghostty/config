@@ -2,7 +2,7 @@
 macos-option-as-alt = true
 
 # typography
-font-family = Iosevka
+font-family = "Iosevka Term"
 font-size = 15
 font-thicken = true
 font-thicken-strength = 1
