@@ -1,3 +1,4 @@
+brew "powerlevel10k"
 brew "bat"
 brew "btop"
 brew "fd"

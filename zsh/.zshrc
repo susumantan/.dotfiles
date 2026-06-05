@@ -66,7 +66,7 @@ fi
 eval "$(zoxide init zsh)"
 
 # p10k prompt
-source "$PLUGINS_DIR/powerlevel10k/powerlevel10k.zsh-theme"
+[[ ! -f $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme ]] || source $HOMEBREW_PREFIX/share/powerlevel10k/powerlevel10k.zsh-theme
 
 # To customize prompt, run `p10k configure` or edit $HOME/.config/p10k/p10k.zsh
 [[ ! -f $HOME/.config/p10k/p10k.zsh ]] || source $HOME/.config/p10k/p10k.zsh
