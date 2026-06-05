@@ -15,13 +15,14 @@ alias fgrep='fgrep --color=auto'
 alias :q="exit"
 alias c="code"
 
-alias dotfiles='$VISUAL ~/.dotfiles'
-alias zshconfig='$VISUAL ~/.zshrc'
-alias aliases='$VISUAL ~/.config/zsh/aliases.zsh'
+alias dotfiles='code ~/.dotfiles'
+alias zshconfig='code ~/.zshrc'
+alias aliases='code ~/.config/zsh/aliases.zsh'
 
 alias cat='bat --plain'
 alias htop='btop'
 # alias cd='z'
+alias compose='docker compose'
 alias lz='lazygit'
 
 clear() {

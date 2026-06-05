@@ -26,9 +26,6 @@ if command -v vim >/dev/null 2>&1; then
   export EDITOR='vim'
 fi
 
-# export VISUAL="zed"
-export VISUAL="code"
-
 source "$HOME/.config/zsh/aliases.zsh"
 
 # If you need to have a local .zsh_profile, create ~/.zsh_profile.local on your home directory
