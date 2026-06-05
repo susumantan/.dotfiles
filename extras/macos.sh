@@ -9,13 +9,13 @@ defaults write -g ApplePressAndHoldEnabled -bool false
 # defaults write com.apple.finder QuitMenuItem -bool true
 
 # Finder: show all filename extensions in Finder
-# defaults write -g AppleShowAllExtensions -bool true
+defaults write -g AppleShowAllExtensions -bool true
 
 # Finder: show status bar
-# defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder ShowStatusBar -bool true
 
 # Finder: show path bar
-# defaults write com.apple.finder ShowPathbar -bool true
+defaults write com.apple.finder ShowPathbar -bool true
 
 ## Dock, Dashboard, and hot corners
 
