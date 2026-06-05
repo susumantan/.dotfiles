@@ -4,6 +4,3 @@
 [submodule "tmux/.config/tmux/plugins/tmux-open"]
 	path = tmux/.config/tmux/plugins/tmux-open
 	url = git@github.com:tmux-plugins/tmux-open.git
-[submodule "zsh/.config/zsh/plugins/powerlevel10k"]
-	path = zsh/.config/zsh/plugins/powerlevel10k
-	url = git@github.com:romkatv/powerlevel10k.git
