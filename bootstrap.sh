@@ -52,7 +52,7 @@ else
 fi
 
 echo "Cloning dotfiles repository..."
-git clone git@github.com:susumantan/.dotfiles.git $HOME/.dotfiles
+git clone --recurse-submodules git@github.com:susumantan/.dotfiles.git $HOME/.dotfiles
 
 echo "Bootstrapping complete!"
 
