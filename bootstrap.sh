@@ -17,6 +17,7 @@ if command -v brew &> /dev/null; then
 else
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     eval "$(/opt/homebrew/bin/brew shellenv)" # give homebrew to the current shell session
+    echo "Homebrew installed successfully. You need to add .zprofile for brew yourself"
 fi
 
 if command -v bw &> /dev/null && command -v jq &> /dev/null; then
@@ -39,7 +40,23 @@ echo "$json" | jq -r '.sshKey.publicKey' > ~/.ssh/$file_name.pub
 chmod 600 ~/.ssh/$file_name
 chmod 644 ~/.ssh/$file_name.pub
 
-echo "Environment bootstrapped successfully!"
-echo "Next steps:"
-echo "1. Clone the dotfiles repository"
-echo "2. Run the install script"
+# Update the ssh config file to use the new key for github.com
+echo "Configuring SSH for github.com..."
+if ! grep -q "Host github.com" ~/.ssh/config 2>/dev/null; then
+    echo "Host github.com" >> ~/.ssh/config
+    echo "  AddKeysToAgent yes" >> ~/.ssh/config
+    echo "  IdentityFile ~/.ssh/$file_name" >> ~/.ssh/config
+    echo "Added SSH configuration for github.com"
+else
+    echo "SSH configuration for github.com already exists, skipping."
+fi
+
+echo "Cloning dotfiles repository..."
+git clone git@github.com:susumantan/.dotfiles.git $HOME/.dotfiles
+
+echo "Bootstrapping complete!"
+
+# Cleanup
+unset BW_SESSION
+
+brew uninstall --force bitwarden-cli jq
