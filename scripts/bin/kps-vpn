@@ -1,0 +1,50 @@
+#!/usr/bin/env bash
+
+# This script is used to connect to a VPN for KOPNUS.
+# Prerequisites:
+# - openfortivpn must be installed using Homebrew
+
+if ! command -v openfortivpn >/dev/null 2>&1; then
+    echo "openfortivpn is not installed. Please install it to use this script."
+    exit 1
+fi
+
+LOG_FILE="$HOME/.config/openfortivpn/kopnus.log"
+
+case "$1" in
+    "help")
+        echo "Usage: $0 [command]"
+        echo "Commands:"
+        echo "  up   Connect to the KOPNUS VPN"
+        echo "  down Disconnect from the KOPNUS VPN"
+        ;;
+    "up")
+        if [ ! -f "$HOME/.config/openfortivpn/kopnus.conf" ]; then
+            echo "Configuration file not found at $HOME/.config/openfortivpn/kopnus.conf. Please create it with the necessary VPN settings."
+            exit 1
+        fi
+
+        sudo openfortivpn --config "$HOME/.config/openfortivpn/kopnus.conf" > "$LOG_FILE" 2>&1 &
+        sleep 3 # Wait for the handshake to complete
+        if grep -q "Tunnel is up and running" "$LOG_FILE"; then
+            echo "VPN connection established successfully."
+        else
+            echo "Failed to establish VPN connection. Check the log file at $LOG_FILE for details."
+            exit 1
+        fi
+        ;;
+    "down")
+        # need sudo to run this command
+        sudo pkill openfortivpn
+        ;;
+    "status")
+        if pgrep openfortivpn >/dev/null 2>&1; then
+            echo "VPN is currently connected."
+        else
+            echo "VPN is not connected."
+        fi
+        ;;
+    *)
+        echo "Invalid command. Use '$0 help' for usage information."
+        exit 1
+esac
